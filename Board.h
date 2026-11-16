@@ -1,11 +1,15 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+#include <items.h>
+#include <map>
+#include <vector>
+
 enum TileType {
-        ROOM = 0,
-        HALLWAY = 1,
-        DOOR = 2
-    };
+    ROOM = 0,
+    HALLWAY = 1,
+    DOOR = 2
+};
 
 class Board {
 private:
@@ -37,10 +41,13 @@ private:
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
 
+    std::map<Room, std::vector<std::pair<int, int>>> roomDoors;
+
 public:
     Board();
 
     void displayBoard();
+    void setDoors();
     int getTile(int row, int col);
 };
 
